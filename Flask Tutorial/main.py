@@ -44,8 +44,6 @@ def create_user():
     # we proabbly want to add this data to a DB, but for now just demo
 
 
-
-
 # to run our flask application, runs the flask server
 if __name__ == "__main__":
     app.run(debug=True)
