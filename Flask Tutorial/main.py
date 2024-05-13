@@ -36,9 +36,14 @@ def get_user(user_id):
 def create_user():
     #we wna recieve some data from the body of the  request thats in json format
     # what is request in the first place??
-    data = request.get_json()
-    return jsonify(data), 201
+    #data = request.get_json()
+
+    params = request.form # get data from post type requests, in form format
+
+    return jsonify(params), 201
     # we proabbly want to add this data to a DB, but for now just demo
+
+
 
 
 # to run our flask application, runs the flask server
