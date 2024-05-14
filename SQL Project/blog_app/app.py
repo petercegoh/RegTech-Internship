@@ -1,3 +1,4 @@
+# here the creation of the app itself and the route are still combined in 1 file.
 # handles database interactions, migrations, and functionalities
 from flask import Flask
 # this lets us grab a html file and user it as our template
@@ -31,6 +32,7 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    # ^ you can specify what port flask runs on here
 
 # Additional functionalities can be added here, like
 # retrieving posts, updating posts, deleting posts etc.
