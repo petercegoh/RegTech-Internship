@@ -29,7 +29,7 @@ def hello_v1():
 def get_all_users():
     db = get_db()
     users = db.query(User).all()
-    users_list = [user.__dict__ for user in users]
+    users_list = [user.to_dict() for user in users]
     db.close()
     return jsonify(users_list)
 
@@ -51,7 +51,7 @@ def get_user(user_id):
     user = db.query(User).filter_by(id=user_id).first()
     if not user:
         return jsonify({"message": "User not found"}), 404
-    user_data = user.__dict__
+    user_data = user.to_dict()
     db.close()
     return jsonify(user_data)
 
@@ -63,7 +63,7 @@ def get_restaurant(restaurant_id):
     restaurant = db.query(Food).filter_by(id=restaurant_id).first()
     if not restaurant:
         return jsonify({"message": "Restaurant not found"}), 404
-    restaurant_data = restaurant.__dict__
+    restaurant_data = restaurant.to_dict()
     db.close()
     return jsonify(restaurant_data)
 

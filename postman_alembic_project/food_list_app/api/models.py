@@ -35,10 +35,20 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True, nullable=False)
     address = Column(String, nullable=False)
-    country = Column(String, nullable=False)
-    fav_restaurant = Column(String, nullable=False)
+    country = Column(String, nullable=True)
+    fav_restaurant = Column(String, nullable=True)
   # ... other columns
 
     def __repr__(self):
         return f"user_list(id={self.id}, name='{self.name}')"
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "address": self.address,
+            "country": self.country,
+            "fav_restaurant": self.fav_restaurant,
+            # ... add other relevant fields here
+        }
   
